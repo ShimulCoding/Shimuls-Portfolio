@@ -1,0 +1,182 @@
+#contact {
+  background: linear-gradient(160deg, #fef2f2 0%, #ffe4e6 25%, #fce7f3 50%, #fff1f2 75%, #fdf2f8 100%);
+  background-size: 300% 300%;
+  animation: ctGrad 10s ease-in-out infinite;
+  color: #881337;
+  min-height: auto;
+  padding: 100px clamp(16px, 5vw, 60px);
+  position: relative;
+}
+@keyframes ctGrad {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+#contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(rgba(225, 29, 72, 0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+.ct-stag {
+  color: #be123c;
+  background: rgba(190, 18, 60, 0.06);
+  border: 1px solid rgba(190, 18, 60, 0.12);
+}
+.ct-stitle {
+  color: #881337;
+}
+.ct-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: ctOrb 15s ease-in-out infinite;
+}
+@keyframes ctOrb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(20px, -15px) scale(1.05); }
+  66% { transform: translate(-15px, 10px) scale(0.95); }
+}
+.ct-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 36px;
+  align-items: start;
+}
+.cl-i {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(190, 18, 60, 0.08);
+  transition: padding-left 0.3s;
+  text-decoration: none;
+  color: #881337;
+}
+.cl-i:hover {
+  padding-left: 10px;
+}
+.cl-ic {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  background: rgba(225, 29, 72, 0.05);
+  border: 1px solid rgba(225, 29, 72, 0.1);
+  flex-shrink: 0;
+  transition: background 0.3s, color 0.3s;
+}
+.cl-i:hover .cl-ic {
+  background: #e11d48;
+  color: white;
+}
+.cl-lbl {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.52rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #9f1239;
+}
+.cl-val {
+  font-weight: 700;
+  font-size: 0.88rem;
+  margin-top: 1px;
+  color: #881337;
+}
+.msg-form {
+  background: rgba(255, 255, 255, 0.55);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(225, 29, 72, 0.1);
+  border-radius: 20px;
+  padding: 28px;
+}
+.fg {
+  margin-bottom: 16px;
+}
+.fg label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #9f1239;
+  display: block;
+  margin-bottom: 6px;
+}
+.fg input,
+.fg textarea {
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 12px;
+  background: white;
+  border: 1.5px solid rgba(225, 29, 72, 0.12);
+  color: #881337;
+  font-family: 'Satoshi', system-ui, sans-serif;
+  font-size: 0.9rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  outline: none;
+  resize: vertical;
+}
+.fg input:focus,
+.fg textarea:focus {
+  border-color: #e11d48;
+  box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.08);
+}
+.fg textarea {
+  min-height: 110px;
+}
+.send-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  padding: 14px 34px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: white;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #e11d48, #db2777);
+  box-shadow: 0 8px 25px rgba(225, 29, 72, 0.25);
+  transition: transform 0.3s, box-shadow 0.3s;
+  font-family: 'Satoshi', system-ui, sans-serif;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.send-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(225, 29, 72, 0.35);
+}
+.form-ok {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  color: #059669;
+  font-size: 0.85rem;
+  margin-top: 10px;
+  animation: fsl 0.5s ease-out;
+}
+@keyframes fsl {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 900px) {
+  .ct-layout {
+    grid-template-columns: 1fr;
+  }
+}

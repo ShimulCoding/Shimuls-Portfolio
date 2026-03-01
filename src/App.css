@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Satoshi:wght@300;400;500;700;900&family=Space+Mono:wght@400;700&display=swap');
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--indigo:#6366f1;--rose:#f43f5e;--amber:#f59e0b;--emerald:#10b981;--sky:#0ea5e9;--violet:#8b5cf6;--pink:#ec4899;--teal:#14b8a6;--font:'Satoshi',system-ui,sans-serif;--display:'Clash Display',sans-serif;--mono:'Space Mono',monospace}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font);background:#050810;color:#e2e8f0;overflow-x:hidden;line-height:1.65}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:#0a0f1a}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--indigo),var(--rose));border-radius:8px}
+#progress{position:fixed;top:0;left:0;height:3px;z-index:10001;background:linear-gradient(90deg,var(--indigo),var(--rose),var(--amber),var(--emerald));width:0;transition:width .1s}
+section{position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:120px clamp(16px,5vw,60px)}
+.sec-inner{max-width:1120px;width:100%;margin:0 auto;position:relative;z-index:2}
+.stag{font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:3px;padding:6px 16px;border-radius:100px;display:inline-block;margin-bottom:14px}
+.stitle{font-family:var(--display);font-size:clamp(2.2rem,5vw,3.4rem);font-weight:700;line-height:1.1;margin-bottom:16px;letter-spacing:-.5px}
+.sdesc{font-family:var(--font);color:rgba(255,255,255,.5);font-size:1rem;max-width:600px;margin-bottom:2.5rem}
+.mesh{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none;opacity:.1;animation:mfl 18s ease-in-out infinite}
+@keyframes mfl{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-25px) scale(1.08)}66%{transform:translate(-20px,18px) scale(.95)}}
+
+/* ═══════════════════════════════════════════
+   SCROLL REVEAL ANIMATIONS - SUPER DRAMATIC
+═══════════════════════════════════════════ */
+
+/* Rise from bottom with blur */
+.rv{opacity:0;transform:translateY(80px) scale(0.92);filter:blur(8px);transition:1s cubic-bezier(0.22,1,0.36,1)}
+.rv.on{opacity:1;transform:none;filter:none}
+
+/* Scale in with rotation */
+.rvs{opacity:0;transform:scale(0.6) rotate(-5deg);filter:blur(6px);transition:1s cubic-bezier(0.22,1,0.36,1)}
+.rvs.on{opacity:1;transform:none;filter:none}
+
+/* Slide from left with perspective */
+.rvl{opacity:0;transform:perspective(600px) rotateY(15deg) translateX(-80px);filter:blur(6px);transition:1s cubic-bezier(0.22,1,0.36,1)}
+.rvl.on{opacity:1;transform:none;filter:none}
+
+/* Slide from right */
+.rvr{opacity:0;transform:perspective(600px) rotateY(-15deg) translateX(80px);filter:blur(6px);transition:1s cubic-bezier(0.22,1,0.36,1)}
+.rvr.on{opacity:1;transform:none;filter:none}
+
+/* Flip in from top */
+.rvf{opacity:0;transform:perspective(600px) rotateX(-30deg) translateY(-40px);filter:blur(6px);transition:1s cubic-bezier(0.22,1,0.36,1)}
+.rvf.on{opacity:1;transform:none;filter:none}
+
+/* Zoom burst */
+.rvz{opacity:0;transform:scale(0.3);filter:blur(12px);transition:1.2s cubic-bezier(0.34,1.56,0.64,1)}
+.rvz.on{opacity:1;transform:none;filter:none}
+
+/* Spring bounce from bottom */
+.rvb{opacity:0;transform:translateY(120px);transition:1.2s cubic-bezier(0.34,1.56,0.64,1)}
+.rvb.on{opacity:1;transform:none}
+
+/* Stagger delays - more granular */
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+.d4{transition-delay:.4s}.d5{transition-delay:.5s}.d6{transition-delay:.6s}
+.d7{transition-delay:.7s}.d8{transition-delay:.8s}.d9{transition-delay:.9s}
+.d10{transition-delay:1s}
+
+/* Section entrance wrapper */
+.sec-entrance{opacity:0;transform:translateY(60px);transition:1.2s cubic-bezier(0.22,1,0.36,1)}
+.sec-entrance.on{opacity:1;transform:none}
+
+/* Title animations triggered by scroll */
+.ta{opacity:0}
+.ta.a-rise{animation:tRise .8s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes tRise{0%{opacity:0;transform:translateY(60px) scale(.9);filter:blur(8px)}100%{opacity:1;transform:none;filter:none}}
+.ta.a-flip{animation:tFlip .8s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes tFlip{0%{opacity:0;transform:perspective(600px) rotateX(-60deg) translateY(30px)}100%{opacity:1;transform:none}}
+.ta.a-scale{animation:tScale .8s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes tScale{0%{opacity:0;transform:scale(0) rotate(-15deg)}50%{transform:scale(1.05) rotate(2deg)}100%{opacity:1;transform:none}}
+.ta.a-drop{animation:tDrop 1s cubic-bezier(.68,-.55,.27,1.55) forwards}
+@keyframes tDrop{0%{opacity:0;transform:translateY(-80px)}60%{transform:translateY(8px)}100%{opacity:1;transform:none}}
+.ta.a-glitch{animation:tGlitch .7s ease-out forwards}
+@keyframes tGlitch{0%{opacity:0;transform:translate(-8px);filter:blur(6px) hue-rotate(90deg)}25%{transform:translate(6px,-3px);filter:blur(3px) hue-rotate(45deg)}50%{transform:translate(-4px,2px);filter:blur(1px)}100%{opacity:1;transform:none;filter:none}}
+.ta.a-spread{animation:tSpread .8s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes tSpread{0%{opacity:0;letter-spacing:20px;filter:blur(10px)}100%{opacity:1;letter-spacing:-.5px;filter:none}}
+.ta.a-wave{animation:tWave .9s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes tWave{0%{opacity:0;transform:translateY(40px) scaleY(0)}40%{transform:translateY(-10px) scaleY(1.1)}60%{transform:translateY(5px) scaleY(.95)}100%{opacity:1;transform:none}}
+.ta.a-swing{animation:tSwing .9s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes tSwing{0%{opacity:0;transform:rotate(-10deg) translateX(-50px)}40%{transform:rotate(3deg) translateX(10px)}70%{transform:rotate(-1deg)}100%{opacity:1;transform:none}}
+
+/* Scroll-triggered title animations */
+.scroll-title{opacity:0;transform:translateY(40px) scale(0.9);filter:blur(8px);transition:1s cubic-bezier(.22,1,.36,1)}
+.scroll-title.on{opacity:1;transform:none;filter:none}
+
+.spkbox{position:absolute;inset:0;pointer-events:none;z-index:6;overflow:hidden}
+.spk{position:absolute;border-radius:50%;opacity:0}.spk.go{animation:spk 1s ease-out forwards}
+@keyframes spk{0%{opacity:1;transform:scale(0)}50%{opacity:.6}100%{opacity:0;transform:scale(1.2) translate(var(--sx),var(--sy))}}
+.pring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:0;height:0;border-radius:50%;pointer-events:none;z-index:5;opacity:0}
+.pring.go{animation:prg 1.3s ease-out forwards}
+@keyframes prg{0%{width:0;height:0;opacity:.45}50%{opacity:.15}100%{width:260vmax;height:260vmax;opacity:0}}
+
+/* Card hover glow effect on scroll */
+.card-glow{position:relative}
+.card-glow::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;border-radius:inherit;opacity:0;transition:opacity .6s;pointer-events:none;box-shadow:0 0 40px rgba(124,58,237,.15)}
+.card-glow.on::after{opacity:1}
+
+@media(max-width:700px){section{padding:80px 16px}}
