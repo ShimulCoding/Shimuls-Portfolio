@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Home.css';
 import useIntersectionObserver from '../hooks/useIntersectionObserver';
-import photo from '../assets/shimul.jpg';
+import photo from '../assets/shimul-1.jpg';
 
 const phrases = [
   'BSc in Computer Science & Engineering',
